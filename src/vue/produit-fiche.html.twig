@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+{% block title %} {{ parent() }}{% endblock %}
+{% block contenu %}
+
+{% if form.valideAjout is defined %}
+ {% if form.valideAjout == true %}
+ <h3 class="text-success">{{ form.message }}</h1>
+ {% else %}
+ <h3 class="text-danger">{{ form.message }}</h1>
+ {% endif %}
+{% endif %}
+
+{% if form.produit is defined %}
+<div class="container">
+        <h1 class="titre">{{ form.produit.designation }}</h1>
+
+    <div class="row">
+            {% if form.produit.photo is not empty %}
+                <div class="img-container">
+                    <img src="images/{{ form.produit.photo }}" alt="{{ form.produit.designation }}" class="img-fluid">
+                </div>
+            {% else %}
+                <div class="img-container">
+                    <img src="images/defaut" class="img-fluid">
+                </div>
+            {% endif %}
+        <div class="col-md-6">
+            <div class="">Description :
+                <p>{{ form.produit.description }}</p>
+                <p>Prix: {{ form.produit.prix }} €</p>
+                <p>Type: {{ form.produit.type }}</p>
+
+                <form action="index.php?page=produitfiche" method="post" enctype="application/xwww-form-urlencoded">
+                    <input type="hidden" name="id" value="{{ form.produit.id }}" />
+                    <button class="btn rounded-pill" type="submit" name="btAjoutP">Ajouter au panier</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+    Le produit demandé n'existe pas !
+</div>
+{% endif %}
+
+<style>
+
+.titre {
+    margin-left: 80px;
+}
+
+.img-fluid {
+    width: 100%;
+}
+
+.img-container {
+    width: 500px;
+    height: 500px;
+}
+
+</style>
+{% endblock %}

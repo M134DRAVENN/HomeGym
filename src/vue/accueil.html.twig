@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ parent() }}{% endblock %}
+
+{% block contenu %} 
+
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h1 class="display-4">Bienvenue dans Home Gym</h1>
+            <p class="lead">Découvrez notre sélection de produits de qualité.</p>
+            <hr class="my-4">
+            <p>Explorez notre catalogue et trouvez ce que vous recherchez.</p>
+            <a class="btn btn-lg" href="index.php?page=recherche&recherche=" role="button">Voir les produits</a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="images/65a3d454ad9f5.gif" class="card-img-top" alt="Produit 1">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style = "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 2; text-overflow: ellipsis;">Barres de dips Pro</h5>
+                        <p class="card-text" style = "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 2; text-overflow: ellipsis;">Lidl met à votre disposition de nouvelles barre pour vous garder en pleine forme ! Poids max : 80kg, L x l x h : 90cm x 50cm x 75cm.</p>
+                        <a href="https://portfolio.gamergathering.fr/HG_Shop/public/index.php?page=produitfiche&id=18" class="btn">Voir le produit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="images/65a3d438b2cc1.jpeg" class="card-img-top" alt="Produit 2">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style = "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 2; text-overflow: ellipsis;">Dips bar - EAfit</h5>
+                        <p class="card-text" style = "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 2; text-overflow: ellipsis;">Barres de dips - Noir - Poids maximum : 180kg - L x l x h : 80cm x 60cm x 75cm</p>
+                        <a href="https://portfolio.gamergathering.fr/HG_Shop/public/index.php?page=produitfiche&id=17" class="btn">Voir le produit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="images/65a3d49bbc879.png" class="card-img-top" alt="Produit 3">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style = "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 2; text-overflow: ellipsis;">Poids pour chevilles - BODY SOLID</h5>
+                        <p class="card-text" style = "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 2; text-overflow: ellipsis;">Les poids pour chevilles de la marque BODY SOLID vous permettent d'augmenter l'intensité lors de vos séances d'abdominaux ou de jambes (quadriceps, ischios, fessiers, ...) en allant jusqu'à un maximum de 9kg, soit 18kg la paire.</p>
+                        <a href="https://portfolio.gamergathering.fr/HG_Shop/public/index.php?page=produitfiche&id=20" class="btn">Voir le produit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ parent() }}{% endblock %}
+
+{% block contenu %}
+    {% if session.panier is empty %}
+        <h1>Il n'y a pas d'article</h1>
+    {% else %}
+        {% if session.panier is defined %}
+            {% if form.valide is defined %}
+                {% if form.valide == true %}
+                    <h2 class="text-success">{{ form.message }}</h2>
+                    <p>Votre commande est prise en considération avec succès.</p>
+                    <p>Merci de faire vos achats sur HomeGym ! </p>
+                    {% if form.erreur is defined %}
+                        <h3 class="text-warning">{{ form.erreur }}</h3>
+                    {% endif %}
+                {% else %}
+                    <h1 class="text-danger">{{ form.message }}</h1>
+                {% endif %}
+            {% else %}
+                <div class="panier content-wrapper">
+                    <h1>Panier d'achat</h1>
+                    <form action="index.php?page=panier" method="post">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" colspan="2">Produit</th>
+                                    <th scope="col">Prix</th>
+                                    <th scope="col">Quantité</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% set total = 0 %}
+                                {% for u in liste %}
+                                    {% set somme = session.panier[u.id] * u.prix %}
+                                    {% set total = total + somme %}
+                                    <tr>
+                                        <td><a href="index.php?page=produitfiche&id={{ u.id }}">{{ u.designation }}</a></td>
+                                        <td><a href="index.php?page=panier&remove={{ u.id }}"><i class="bi bi-trash">&nbsp;</i>Supprimer</a></td>
+                                        <td class="prix">{{ u.prix }} €</td>
+                                        <td><input type="number" class="form-control" name="q-{{ u.id }}" min="1" max="100" value="{{ session.panier[u.id] }}" required></td>
+                                        <td>{{ somme }} €</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <div class="subtotal">
+                            <span class="text">Total : </span>
+                            <span class="prix">{{ total }} €</span>
+                        </div>
+                        <input type="hidden" name="montant" value="{{ total }}">
+                        <div class="buttons">
+                            <button type="submit" class="btn" name="update">Mettre à jour</button>
+                            <button type="submit" class="btn" name="placerCommade">Passer la commande</button>
+                        </div>
+                    </form>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endblock %}

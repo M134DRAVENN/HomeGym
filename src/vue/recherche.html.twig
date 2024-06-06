@@ -1,0 +1,102 @@
+{% extends "base.html.twig" %}
+{% block title %} {{ parent() }}{% endblock %}
+{% block contenu %}
+
+<head>
+    <title>Résultats de la recherche</title>
+</head>
+<body>
+{% if recherche|length < 1 %}
+    <h1 class="text-blk team-head-text">Resultats</h1><br>
+{% else %}
+    <h1 class="text-blk team-head-text">Resultats pour : "{{recherche}}"</h1><br>
+{% endif %}
+    {% if resultats %}
+        <ul>
+            <div class="responsive-container-block">
+            {% for resultat in resultats %}
+                <div class="card-container">
+                    <div class="card">
+                      <div class="card-img-container">
+                      {% if resultat.photo is not empty %}
+                          <img src="images/{{resultat.photo}}" class="card-img-top" alt="Produit 1">
+                      {% else %}
+                          <img src="images/defaut" class="card-img-top" alt="Produit 1">
+                      {% endif %}
+                      </div>
+                      <div class="card-body">
+                          <h5 class="card-title" style = "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 1; text-overflow: ellipsis;">{{ resultat.designation }}</h5>
+                          <p class="card-text" style = "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 2; text-overflow: ellipsis;">{{ resultat.description }}</p>
+                          <p class="card-text bas">{{ resultat.prix }}€</p>
+                          <p class="card-text bas">{{ resultat.type }}</p>
+                          <a href="index.php?page=produitfiche&id={{ resultat.id }}" class="btn">Voir le produit</a>
+                      </div>
+                </div>
+                </div>
+            {% endfor %}
+            </div>
+        </ul>
+    {% else %}
+        <p>Aucun résultat trouvé.</p>
+    {% endif %}
+</body>
+
+<style>
+ 
+  .text-blk {
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    line-height: 25px;
+  }
+  
+  .responsive-container-block {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    justify-content: space-evenly;
+  }
+  
+  .team-head-text {
+    font-size: 48px;
+    font-weight: 900;
+    text-align: center;
+  }
+  
+  .team-head-text {
+    line-height: 50px;
+    width: 100%;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+  }
+  
+  .container {
+    max-width: 1500px;
+    margin-top: 60px;
+    margin-right: auto;
+    margin-bottom: 60px;
+    margin-left: auto;
+    padding-top: 0px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    padding-left: 30px;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&amp;display=swap');
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+</style>
+
+{% endblock %}

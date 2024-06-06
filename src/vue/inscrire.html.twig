@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ parent() }}{% endblock %}
+
+{% block contenu %}
+    {% if form.valide is defined %}
+        {% if form.valide == true %}
+            <div class="alert alert-success" role="alert">
+                <h1>Inscription reussie</h1>
+                <h1>Voici votre identifiant : {{form.email}}</h1>
+                {% if form.role == 1 %}
+                    <h1>Vous etes administrateur du site</h1>
+                {% else %}
+                    <h1>Vous etes un client du site </h1>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="alert alert-danger" role="alert">
+                <h1>Echec de l'inscription</h1>
+                <h1>Erreur : {{form.message}}</h1>
+                <a href="index.php?page=inscrire" class="alert-link">Retourner sur la page d'inscription</a>
+            </div>
+        {% endif %}
+    {% else %}
+        <form action="index.php?page=inscrire" method="post" enctype="application/x-www-form-urlencoded">
+            <h1 class="h3 mb-3 font-weight-normal">Inscrivez-vous sur HG-shop</h1>
+            <label for="inputEmail" class="sr-only">Email:</label>
+            <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" required autofocus>
+            <label for="inputNom" class="sr-only">Nom:</label>
+            <input type="nom" id="inputNom" name="inputNom" class="form-control" placeholder="Nom" required autofocus>
+            <label for="inputPrenom" class="sr-only">Prenom:</label>
+            <input type="prenom" id="inputPrenom" name="inputPrenom" class="form-control" placeholder="Prenom" required autofocus>
+            <label for="inputPassword" class="sr-only">Mot de passe:</label>
+            <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Mot de passe" required>
+            <label for="inputPassword2" class="sr-only">Mot de passe:</label>
+            <input type="password" id="inputPassword2" name="inputPassword2" class="form-control" placeholder="Confirmation mot de passe" required>
+            <button class="btn btn-lg btn-block" type="submit" name="btInscrire">S'inscrire</button>
+        </form>
+    {% endif %}
+{% endblock %}

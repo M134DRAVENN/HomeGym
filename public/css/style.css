@@ -1,0 +1,236 @@
+@font-face {
+    font-family: 'Ankh-Sanctuary';
+    src: url('../css/ankh-sanctuary/Ankh-Sanctuary.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'accuratist';
+    src: url('../css/accuratist/Accuratist.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'accuratist', sans-serif;
+    background-color: #111111;
+    color: #25FDE9;
+}
+
+.navbar {
+    background-color: #0d0d0d;
+}
+
+.navbar-brand {
+    color: #25FDE9 !important;
+}
+
+.btn {
+    color: #25FDE9 !important;
+    border-color: #25FDE9 !important;
+}
+
+.btn:hover {
+    color: #080808 !important;
+    background-color: #25FDE9 !important;
+    border-color: #080808 !important;
+}
+
+.container {
+    flex-grow: 1;
+}
+
+.container-fluid {
+    background-color: #0d0d0d !important;
+}
+
+a {
+    color: #25FDE9 !important;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: 1px solid #25FDE9 !important;
+}
+
+.dropdown-item {
+    transition: color .15s ease-in-out,background-color .15s ease-in-out;
+}
+
+.dropdown-item:hover {
+    color: #080808 !important;
+    background-color: #25FDE9 !important;
+    border-color: #080808 !important;
+}
+
+.cart {
+    width:95%;
+}
+
+.cart-container {
+    position: fixed; 
+    bottom: 10px; 
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: #25FDE9;
+    border-radius: 8px 8px 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.cart-container:hover {
+    width: 65px;
+    height: 65px;
+}
+
+.text-blk {
+    color: #25FDE9 !important;
+}
+
+h1 {
+    font-family: 'Ankh-Sanctuary', sans-serif;
+    color: unset;
+    color: #25FDE9 !important;
+}
+
+table {
+    color: #fff !important;
+}
+
+th {
+    color: #25FDE9 !important;
+}
+
+.page-item.disabled .page-link {
+    background-color: rgba(0, 0, 0, 0) !important;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out;
+}
+
+.page-item.disabled .page-link:hover {
+    color: #111111 !important;
+    background-color: #25FDE9 !important;
+}
+
+.page-item.active .page-link {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: 1px solid #fff;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out;
+}
+
+.page-item.active .page-link:hover {
+    color: #111111 !important;
+    background-color: #25FDE9 !important;
+}
+
+.jumbotron {
+    background-color: #0d0d0d !important;
+}
+
+.card-body {
+    background-color: #0d0d0d !important;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #25FDE9;
+    border-radius: 0.25rem;
+    height: 480px;
+    width: 340px;
+}
+
+.card-img-container {
+    margin-left: 19px;
+    max-width: 300px;
+    min-width: 300px;
+    height: 240px;
+}
+
+.card-img-top {
+    height: 240px;
+    width: 100%
+}
+
+.bas {
+    margin-bottom: 5px;
+}
+
+.card-container {
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+}
+
+.alert-success {
+    all: unset;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: #25FDE9;
+}
+
+.alert-danger {
+    background-color: rgba(255, 0, 0, 0.15);
+    border-color: #FF0000;
+}
+
+.img-container {
+    margin-left: 97px;
+    max-height: 350px;
+    max-width: 350px;
+}
+
+.img-fluid {
+    width: 100%;
+}
+
+.titre {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #080808;
+    margin-top: 50px;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 50px;
+}
+
+.footer-container {
+    padding-top: 20px;
+}
+
+.footer-gauche {
+    margin-left: 300px;
+    max-width: 500px;
+}
+
+.footer-droite {
+    margin-right: 100px;
+    max-width: 500px;
+}
